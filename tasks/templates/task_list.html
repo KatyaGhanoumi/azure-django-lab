@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f0f4ff;
+            margin: 6px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task Manager</h1>
+    <h2>Tasks from DynamoDB</h2>
+
+    {% if tasks %}
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <strong>{{ task.taskName }}</strong>
+            --- Status: {{ task.status }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No tasks found in the database.</p>
+    {% endif %}
+</body>
+
+</html>
